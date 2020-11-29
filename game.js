@@ -19,7 +19,9 @@ function bindEventListeners (dots) {
 
 function makeGreen (evt) {
   evt.preventDefault()
-  evt.target.classList.toggle('green')
+  evt.target.classList.toggle('green');
+  evt.target.classList.remove('blue');
+  evt.target.classList.remove('invisible');
   updateCounts()
 }
 
@@ -27,6 +29,8 @@ function makeGreen (evt) {
 function makeBlue (evt) {
   evt.preventDefault();
   evt.target.classList.toggle('blue');
+  evt.target.classList.remove('invisible');
+  evt.target.classList.remove('green');
   updateCounts();
 }
 // CREATE FUNCTION hide HERE
@@ -34,6 +38,10 @@ function makeBlue (evt) {
 function hide (evt) {
   evt.preventDefault();
   evt.target.classList.toggle('invisible');
+  evt.target.classList.remove('blue');
+  evt.target.classList.remove('green');
+  // evt.target.classList.removeEventListener('click',makeBlue);
+  // evt.target.classList.removeEventListener('contextmenu',makeGreen);
   updateCounts();
 }
 
